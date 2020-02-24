@@ -214,6 +214,16 @@ class Sigmoid(Layer):
 
 
 class Tanh(Layer):
+    """Tanh.
+
+    Hyperbolic tangent layer.
+
+    Parameters
+    ----------
+    output_dim : int
+        Number of neurons in this layers.
+
+    """
     def __init__(self, output_dim):
         self.units = output_dim
         self.type = 'Tanh'

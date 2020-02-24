@@ -1,5 +1,4 @@
-"""Deep learning framework built using torch tensors.
-"""
+"""Deep learning framework built using numpy arrays."""
 
 # Relative subpackages import
 from . import layers

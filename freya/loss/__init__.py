@@ -10,10 +10,10 @@ class MeanSquaredError(Layer):
 
     Parameters
     ----------
-    predicted : torch.Tensor
-        A torch tensor containing the data of predicted values.
-    real : torch.Tensor
-        A torch tensor containing the data of real values (target).
+    predicted : numpy.Array
+        A numpy array containing the data of predicted values.
+    real : numpy.Array
+        A numpy array containing the data of real values (target).
 
     """
     def __init__(self, predicted, real):
@@ -40,8 +40,8 @@ class MeanSquaredError(Layer):
         Computes backward propagation by using the Mean Squared Error 
         derivative formula.
 
-        Freya assumes that the loss layer is the last layer of the net. Hence,
-        it does not need the error of the following layer.
+        Freya assumes that the loss layer is the last layer of the network; 
+        Hence, it does not need the error of the following layer.
 
         Returns
         -------
@@ -56,8 +56,8 @@ class BinaryCrossEntropy(Layer):
     """Binary Cross-Entropy.
     
     Binary Cross-Entropy cost function layer. Freya assumes the loss layer is 
-    the last of the network; hence, it does not need the error of the following 
-    layer.
+    the last of the network; hence, it does not need the error of the 
+    following layer.
     
     Note that we want to compare probabilities with labels.
     

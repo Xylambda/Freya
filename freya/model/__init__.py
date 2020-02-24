@@ -75,11 +75,11 @@ class Model:
         Parameters
         ----------
         X_train : numpy.Array
-            sd
+            Training data. Must match the input size of the first layer.
         Y_train : numpy.Array
-            sdfs
+            Training labels.
         learning_rate : float
-            asda
+            Number of epochs to train the model
         epochs : int
             asdad
         loss_function : str
@@ -101,11 +101,11 @@ class Model:
         Parameters
         ----------
         X_train : numpy.Array
-            sd
+            Training data. Must match the input size of the first layer.
         Y_train : numpy.Array
-            sdfs
+            Training labels.
         learning_rate : float
-            asda
+            Number of epochs to train the model
         epochs : int
             asdad
         loss_function : str
