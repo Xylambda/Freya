@@ -13,13 +13,13 @@ learning project and I plan to keep adding new features to keep learning.
 
 ## Install
 ```code
-git clone
+git clone https://github.com/Xylambda/Freya.git
 pip install freya/.
 ```
 
 ## Developer mode
 ```code
-git clone
+git clone https://github.com/Xylambda/Freya.git
 pip install -e -r requirements.txt freya/.
 ```
 
