@@ -48,5 +48,5 @@ You will find some use cases in `examples` folders.
 * Add more loss functions.
 * Add more activation functions.
 * Management of split data (train and test).
-* Add initializers (currently, only Kaiming is available).
+* Add initializers (currently, only random uniform is available).
 * Add optimizers (currently, only vanilla Gradient Descent is available).

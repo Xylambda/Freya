@@ -205,7 +205,7 @@ class Sigmoid(Layer):
 
         Returns
         -------
-        dZ : numpy.Array
+        dJ : numpy.Array
             Gradient of this layer.
 
         """
@@ -251,6 +251,7 @@ class Tanh(Layer):
         
         """        
         self._prev_acti = np.tanh(input_val)
+        return self._prev_acti
 
     def backward(self, dJ):
         """Backward.
@@ -259,7 +260,7 @@ class Tanh(Layer):
 
         Returns
         -------
-        dZ : numpy.Array
+        dJ : numpy.Array
             Gradient of this layer.
 
         """
