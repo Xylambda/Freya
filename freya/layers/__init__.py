@@ -84,6 +84,18 @@ class Linear(Layer):
             Weights gradient of this layer.
         dB : numpy.Array
             Biases gradient of this layer.
+
+        References
+        ----------
+        [1] Justin Johnson - Backpropagation for a Linear Layer:
+        http://cs231n.stanford.edu/handouts/linear-backprop.pdf
+
+        [2] Pedro Almagro Blanco - Algoritmo de Retropropagación:
+        http://www.cs.us.es/~fsancho/ficheros/IAML/2016/Sesion04/
+        capitulo_BP.pdf
+
+        [3] Raúl Rojas - Neural Networks: A Systematic Introduction:
+        https://page.mi.fu-berlin.de/rojas/neural/chapter/K7.pdf
         
         """
         dW = np.dot(dA, self._prev_acti.T)
@@ -223,6 +235,15 @@ class Tanh(Layer):
     output_dim : int
         Number of neurons in this layers.
 
+    References
+    ----------
+    [1] Wolfram Alpha - Hyperbolic tangent:
+    http://mathworld.wolfram.com/HyperbolicTangent.html
+
+    [2] Brendan O'Connor - tanh is a rescaled logistic sigmoid function:
+    https://brenocon.com/blog/2013/10/tanh-is-a-rescaled-logistic-sigmoid-
+    function/
+
     """
     def __init__(self, output_dim):
         self.units = output_dim
@@ -265,3 +286,62 @@ class Tanh(Layer):
 
         """
         return dJ * (1 - np.square(self._prev_acti))
+
+
+class Swish(Layer):
+    """Swish.
+
+    Swish layer. Swish is a self-gated activation function discovered by 
+    researchers at Google.
+
+    References
+    ----------
+    [1] Prajit Ramachandran, Barret Zoph, Quoc V. Le - Swish: A self-gated 
+    activation function:
+    https://arxiv.org/pdf/1710.05941v1.pdf
+
+    """
+    def __init__(self, output_dim):
+        self.units = output_dim
+        self.type = 'Swish'
+
+    def _len_(self):
+        return self.units        
+
+    def __str__(self):
+        return f"{self.type} Layer"
+
+    def forward(self, input_val):
+        """Forward.
+
+        Computes forward propagation pass of this layer.
+
+        Parameters
+        ----------
+        input_val : numpy.Array
+            Forward propagation of the previous layer.
+        
+        Returns
+        -------
+        _prev_acti : numpy.Array
+            Forward propagation of this layer.
+        
+        """        
+        self._prev_acti = (1 / (1 + np.exp(-input_val))) * input_val
+        return self._prev_acti
+
+    def backward(self, dJ):
+        """Backward.
+
+        Computes backward propagation pass of this layer.
+
+        Returns
+        -------
+        dJ : numpy.Array
+            Gradient of this layer.
+
+        """
+        swish = self._prev_acti
+        sig = 1 / (1 + np.exp(-swish))
+        
+        return dJ * (1 * sig + swish * (1 - swish))

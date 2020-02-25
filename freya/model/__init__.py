@@ -123,9 +123,15 @@ class Model:
             X = forward
             
         # Compute loss and first gradient
-        bce = BinaryCrossEntropy(forward, Y)
-        error = bce.forward()
-        gradient = bce.backward()
+        if loss_function == "BinaryCrossEntropy":
+            loss_f = BinaryCrossEntropy(forward, Y)
+        elif loss_function == "MeanSquaredError":
+            loss_f = MeanSquaredError(forward, Y)
+        else:
+            raise ValueError(f"{loss_function} is not supported.")
+            
+        error = loss_f.forward()
+        gradient = loss_f.backward()
         
         self.loss.append(error)
         
