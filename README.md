@@ -33,7 +33,6 @@ model.add(ReLU(...))
 model.add(Linear(...))
 model.add(Sigmoid(...))
 
-model.compile(...)
 model.train(...)
 
 model.predict(...)
