@@ -1,8 +1,7 @@
 # FREYA
 
 ## Description
-`Freya` is a deep learning framework built using numpy arrays. It started as a 
-learning project and I plan to keep adding new features to keep learning.
+`Freya` is a deep learning framework built using numpy arrays. Is is just the code for [this post](https://quantdare.com/create-your-own-deep-learning-framework-using-numpy/) organized as as library. I do not plan to keep adding new features.
 
 ## Features
 * Linear layers.
@@ -39,13 +38,3 @@ model.predict(...)
 ```
 
 You will find some use cases in `examples` folders.
-
-## TODO
-* Add tests.
-* Recurrent layers.
-* Batch size option.
-* Add more loss functions.
-* Add more activation functions.
-* Management of split data (train and test).
-* Add initializers (currently, only random uniform is available).
-* Add optimizers (currently, only vanilla Gradient Descent is available).
